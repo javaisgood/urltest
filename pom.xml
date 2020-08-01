@@ -43,6 +43,15 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <configuration>
+                    <imageName>jswdwsx/url</imageName>
+                    <dockerDirectory>${basedir}</dockerDirectory> <!-- 指定 Dockerfile 路径-->
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 

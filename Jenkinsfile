@@ -1,29 +1,21 @@
 pipeline {
-    agent {
-        docker {
-            image 'maven:3-alpine'
-            args '-v /root/.m2:/root/.m2 --publish 8080:8080'
-        }
-    }
+    agent any
     stages {
-        stage('Build') {
+        stage('Build jar') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
+                sh 'echo Build done'
             }
         }
-        stage('Test') {
+        stage('Build image') {
             steps {
-                sh 'mvn test'
-            }
-            post {
-                always {
-                    junit 'target/surefire-reports/*.xml'
-                }
+                sh 'mvn docker:build'
+                sh 'echo Build done'
             }
         }
-        stage('Deliver') {
+        stage('Deploy') {
             steps {
-                sh './jenkins/scripts/deliver.sh'
+                sh 'docker run -p 9000:8080 -d jswdwsx/url'
             }
         }
     }
