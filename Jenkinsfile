@@ -11,10 +11,12 @@ pipeline {
             }
         }
         stage('Remove image') {
-                    steps {
-                        sh 'echo Remove image done!'
-                    }
-                }
+            steps {
+                sh "docker ps -a | grep ${params.AppName} | awk '{print \$1}'| xargs docker rm -f"
+                sh "docker rmi ${params.AppName}"
+                sh 'echo Remove image done!'
+            }
+        }
         stage('Build image') {
             steps {
                 sh 'mvn docker:build'
