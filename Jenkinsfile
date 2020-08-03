@@ -12,8 +12,8 @@ pipeline {
         }
         stage('Remove image') {
                     steps {
-                        sh 'docker ps -a | grep ${params.AppName} | awk '{print $1}'| xargs docker rm -f'
-                        sh 'docker rmi ${params.AppName}'
+                        sh 'docker ps -a | grep jswdwsx/url | awk '{print $1}'| xargs docker rm -f'
+                        sh 'docker rmi jswdwsx/url'
                         sh 'echo Remove image done!'
                     }
                 }
@@ -25,7 +25,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'docker run -p 9000:8080 -d ${params.AppName}'
+                sh 'docker run -p 9000:8080 -d jswdwsx/url'
             }
         }
     }
