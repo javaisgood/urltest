@@ -4,13 +4,13 @@ pipeline {
         stage('Build jar') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
-                sh 'echo Build done'
+                sh 'echo Build jar done!'
             }
         }
         stage('Build image') {
             steps {
                 sh 'mvn docker:build'
-                sh 'echo Build done'
+                sh 'echo Build image done!'
             }
         }
         stage('Deploy') {
