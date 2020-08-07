@@ -16,5 +16,5 @@ All the things will be done orderly:
  * Maven run build docker image as dockerfile said.
  * Jenkins run docker image at port:8080.
 
-Browse to http://localhost:8080/url/hello , it will print "http://localhost:8080/url/hello" too.
-try any thing you want http://localhost:8080/url/***.
+Browse to http://localhost:9000/url/hello , it will print "http://localhost:9000/url/hello" too.   
+try any thing you want http://localhost:9000/url/***.
