@@ -9,6 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/")
 public class HelloController {
 
+    @RequestMapping("url")
+    public String url(HttpServletRequest httpServletRequest) {
+        return httpServletRequest.getRequestURL().toString();
+    }
+
     @RequestMapping("**")
     public String hello(HttpServletRequest httpServletRequest) {
         return httpServletRequest.getRequestURL().toString();
