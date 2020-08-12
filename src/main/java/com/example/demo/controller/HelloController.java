@@ -11,7 +11,7 @@ public class HelloController {
 
     @RequestMapping("url")
     public String url(HttpServletRequest httpServletRequest) {
-        return httpServletRequest.getRequestURL().toString();
+        return "this is the very url";
     }
 
     @RequestMapping("**")
